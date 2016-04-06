@@ -1,0 +1,78 @@
+/* CSS declarations go here */
+.border {
+    border: 5px solid white;
+    padding: 10px;
+    background-color: #e0ecff;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.hide-button {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+h1 {
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+}
+
+@media screen and (max-width: 500px) {
+    h1 {
+        font-size: 24px;
+        font-size: 6vw;
+    }
+}
+
+h4 {
+    text-align: center;
+    margin: 0 0 5px 0;
+}
+
+.export {
+    text-align: center;
+}
+
+.glyphicon-eye-close,
+.glyphicon-eye-open {
+    cursor: pointer;
+}
+
+form label,
+form input[type="text"],
+form input[type="number"] {
+    font-size: 12px;
+}
+
+/*.calculations label {
+    font-size: 11px;
+}*/
+
+.calculations .calculation {
+    font-size: 14px;
+}
+
+.reactive-table .code {
+    cursor: pointer;
+}
+
+/*.row{
+    margin-top:40px;
+    padding: 0 10px;
+}*/
+
+.clickable{
+    cursor: pointer;
+}
+
+.panel-heading span {
+	margin-top: -20px;
+	font-size: 15px;
+}
+
+.remove-item {
+    cursor: pointer;
+    color: red;
+}

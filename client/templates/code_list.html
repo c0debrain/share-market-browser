@@ -1,0 +1,29 @@
+<template name="codeList">
+    <div class="hidden-xs col-ms-1"></div>
+    <div class="col-xs-12 col-ms-10">
+        <div class="row" style="margin-bottom: 5px;">
+            <button type="button" class="btn btn-danger remove-all" title="Remove all entries"><span class="glyphicon glyphicon-remove"></span></button>
+            <button type="button" class="btn btn-primary reset" title="Start Again">Reset</button>
+            <button type="button" class="btn btn-primary all-seen" title="Mark all entries as seen">Mark All Seen</button>
+        </div>
+        {{> reactiveTable settings=settings }}
+
+    </div>
+    <div class="hidden-xs col-ms-1"></div>
+</template>
+
+<template name="codeStatus">
+    {{#if this.seen}}
+        <span class="glyphicon glyphicon-eye-close" id="{{this._id}}"></span>
+    {{else}}
+        <span class="glyphicon glyphicon-eye-open" id="{{this._id}}"></span>
+    {{/if}}
+</template>
+
+<template name="seenTitle">
+    <span class="glyphicon glyphicon-ok"></span>
+</template>
+
+<template name="removeItem">
+    <span class="glyphicon glyphicon-remove remove-item" item="{{this._id}}"></span>
+</template>

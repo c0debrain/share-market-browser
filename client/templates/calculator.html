@@ -1,0 +1,95 @@
+<template name="calculator">
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Calculations</h3>
+                <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+            </div>
+            <div class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <form class="calculations">
+                        <div class="row">
+                            <div class="form-group col-xs-4">
+                                <label for="broker-buying-cost">Broker Buying Cost</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">$</span>
+                                    <input type="number" step="any" class="form-control input-sm total-factor" id="broker-buying-cost" placeholder="Price">
+                                </div>
+                            </div>
+                             <div class="form-group col-xs-4">
+                                <label for="broker-selling-cost">Broker Selling Cost</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">$</span>
+                                    <input type="number" step="any" class="form-control input-sm total-factor" id="broker-selling-cost" placeholder="Price">
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-4">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="same-as-broker-buy"> Same Broker Cost
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-xs-4">
+                                <label for="share-buy-price">Share Buy Price</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">$</span>
+                                    <input type="number" step="any" class="form-control input-sm total-factor" id="share-buy-price" placeholder="Price">
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-4">
+                                <label for="share-buy-qty">Buy Qty</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control input-sm total-factor" id="share-buy-qty" placeholder="Buy Qty">
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-4">
+                                <label for="total-purchase">Total Buy Cost</label><br />
+                                <label id="total-purchase" class="label label-default calculation">$ {{totalPurchase}}</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-xs-4">
+                                <label for="desired-profit">Desired Profit</label>
+                                <div class="input-group">
+                                    <input type="number" step="any" class="form-control input-sm total-factor" id="desired-profit" placeholder="%">
+                                    <span class="input-group-addon">%</span>
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-4">
+                                <label for="share-sell-qty">Sell Qty</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control input-sm total-factor" id="share-sell-qty" placeholder="Sell Qty">
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-4">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="same-as-buy"> Same as buy
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-xs-4">
+                                <label for="min-sell-price">Minimum Selling Price</label><br />
+                                <label id="min-sell-price" class="label label-primary calculation">$ {{minSellingPrice}}</label>
+                            </div>
+                            <div class="form-group col-xs-4">
+                                <label for="profit-min-price">Profit at Min Sell Price</label><br />
+                                <label id="profit-min-price" class="label label-primary calculation">$ {{profitAtMinSellPrice}}</label>
+                            </div>
+                            <div class="form-group col-xs-4">
+                                <label for="share-increase-needed">Price Increase Needed</label><br />
+                                <label id="share-increase-needed" class="label label-warning calculation">{{shareIncreaseNeeded}} %</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
