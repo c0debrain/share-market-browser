@@ -19,6 +19,7 @@ Template.import.upsertCode = function() {
 
 Template.import.onRendered( function() {
     $('#import-panel-content').collapse('toggle');
+    $('#import-seen').prop('checked', true);
 });
 
 Template.import.helpers({
@@ -47,13 +48,15 @@ Template.import.events({
                 csv = csv.replace(/\t/g, ',');
                 let n = csv.split('\n').length;
 
+                let importSeen = document.getElementById('import-seen').checked;
+
                 d3.csv.parse(csv, function (d, i) {
                     Template.import.codesToInsert.push({
                         $set: {
                             code: d.code,
                             name: (d.company) ? d.company: d.name,
                             description: (d.industry) ? d.industry : d.description,
-                            seen : (d.seen == "true") ? true : false
+                            seen : (importSeen && d.seen == "true") ? true : false
                         }
                     });
 
@@ -72,5 +75,5 @@ Template.import.events({
     },
     'click #stop-upload'(){
         Template.import.indexCodes = Template.import.codesToInsert.length;
-    }
+    },
 });
