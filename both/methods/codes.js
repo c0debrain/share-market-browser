@@ -1,5 +1,6 @@
 Meteor.methods({
     addCode: function(doc){
-        if (Meteor.isClient) Codes.update({code:doc.$set.code},doc, {upsert: true});
+        doc.$set._id = doc.$set.code;
+        if (Meteor.isClient) Codes.update({_id:doc.$set.code},doc, {upsert: true});
     }
 });

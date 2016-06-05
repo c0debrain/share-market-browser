@@ -10871,5 +10871,6 @@ var ASX_companies = [{
 }];
 
 _.each(ASX_companies, function(doc) {
+    doc._id = doc.code;
     Codes.insert(doc);
 });
