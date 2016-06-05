@@ -4,7 +4,11 @@ Template.import.indexCodes = 0;
 
 Template.import.upsertCode = function() {
     if(Template.import.indexCodes < Template.import.codesToInsert.length) {
-        Codes.update({code:Template.import.codesToInsert[Template.import.indexCodes].$set.code}, Template.import.codesToInsert[Template.import.indexCodes], {upsert: true});
+//        Codes.update({_id:Template.import.codesToInsert[Template.import.indexCodes].$set._id}, Template.import.codesToInsert[Template.import.indexCodes], {upsert: true});
+        try {
+            Codes.insert(Template.import.codesToInsert[Template.import.indexCodes]);
+        } catch(e) {}
+
     }
     Template.import.indexCodes += 1;
     if(Template.import.indexCodes > Template.import.codesToInsert.length - 1 ) {
@@ -33,6 +37,8 @@ Template.import.events({
         let file = files[0];
         let name = files[0].name;
         Template.import.codesToInsert = [];
+        Template.import.indexCodes = 0;
+
         $('[name="uploadCSV"]').hide();
         $('#uploading').show();
 
@@ -52,12 +58,13 @@ Template.import.events({
 
                 d3.csv.parse(csv, function (d, i) {
                     Template.import.codesToInsert.push({
-                        $set: {
+//                        $set: {
+                            _id: d.code,
                             code: d.code,
                             name: (d.company) ? d.company: d.name,
                             description: (d.industry) ? d.industry : d.description,
                             seen : (importSeen && d.seen == "true") ? true : false
-                        }
+//                        }
                     });
 
 //                    Codes.update({code:d.code},codesToInsert, {upsert: true});
